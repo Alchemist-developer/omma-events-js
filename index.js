@@ -1,7 +1,7 @@
-const empresa = "Sistema Omma";
-console.log(`Seja bem vindo ao ${empresa}`);
+  const empresa = "Sistema Omma";
+  console.log(`Seja bem vindo ao ${empresa}`);
 
-const listaDeReceitas = [{
+  const listaDeReceitas = [{
   id: 1,
   titulo: "Cachorro Quente",
   dificuldade: "simples",
@@ -11,7 +11,7 @@ const listaDeReceitas = [{
   vegano: false,
 }, ];
 
-const cadastrarReceita = (
+  const cadastrarReceita = (
   id,
   titulo,
   dificuldade,
@@ -34,10 +34,10 @@ const cadastrarReceita = (
   console.log(`Cadastro da receita ${titulo} feito com sucesso!`);
 };
 
-const btnEnviar = document.querySelector('#btnEnviar');
+  const btnEnviar = document.querySelector('#btnEnviar');
 
-btnEnviar.onclick = (evento) => {
-  // impede que a pagina seja recarregada / previne comportamento padrão 
+  btnEnviar.onclick = (evento) => {
+  // impede que a pagina seja recarregada = evita comportamento padrão 
   evento.preventDefault();
 
   alert('formulario enviado');
@@ -64,8 +64,8 @@ btnEnviar.onclick = (evento) => {
   exibirReceitas();
 }
 
-function exibirReceitas() {
-let htmlReceitas = '';
+  function exibirReceitas() {
+  let htmlReceitas = '';
 
   for (let index = 0; index < listaDeReceitas.length; index++) {
     htmlReceitas += `<article class="card">
@@ -83,9 +83,9 @@ let htmlReceitas = '';
   painelReceitas.innerHTML = htmlReceitas;
 }
 
- exibirReceitas();
+  exibirReceitas();
 
-function deletarReceita(id) {
+  function deletarReceita(id) {
   let novaListaDeReceitas = [];
 
   for (let index = 0; index < listaDeReceitas.length; index++) {
@@ -104,7 +104,7 @@ function deletarReceita(id) {
   console.log("receita deletada com sucesso!");
 }
 
-function deletarReceita(id) {
+  function deletarReceita(id) {
   const novaListaDeReceitas = listaDeReceitas.filter(
     (receita) => receita.id != id
   );
@@ -117,13 +117,9 @@ function deletarReceita(id) {
   console.log("receita deletada com sucesso!");
 }
 
-
-const condicaoDeReceita = (receita) => (receita.vegano = true);
-
-
-const atualizaReceita = (id, receitaAtualizada) => {
+  const condicaoDeReceita = (receita) => (receita.vegano = true);
+  const atualizaReceita = (id, receitaAtualizada) => {
   let foiAtualizado = false;
-
   listaDeReceitas.forEach((receita) => {
     if (receita.id != id) {
       return;
@@ -147,23 +143,13 @@ const atualizaReceita = (id, receitaAtualizada) => {
   );
 };
 
-
-const buscarReceita = (termoBuscado) => {
-
+  const buscarReceita = (termoBuscado) => {
   const resultados = listaDeReceitas.filter(
     (receita) =>
     receita.titulo.toLowerCase().indexOf(termoBuscado.toLowerCase()) != -1
   );
-
-  // if (resultados.length) {
-  //   console.log(resultados);
-  // } else {
-  //   console.log("Não foi encontrado receitas");
-  // }
-
   if (!resultados.length) {
     console.log("Não foi encontrado receitas");
   }
-
   return console.log(resultados);
 };
