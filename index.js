@@ -61,18 +61,11 @@ btnEnviar.onclick = (evento) => {
 
   console.log(novaReceita);
   listaDeReceitas.push(novaReceita);
-
   exibirReceitas();
 }
 
-
-
 function exibirReceitas() {
   let htmlReceitas = '';
-
-
-
-
   for (let index = 0; index < listaDeReceitas.length; index++) {
     htmlReceitas += `<article class="card">
     <h2>${listaDeReceitas[index].titulo}</h2>
@@ -82,13 +75,9 @@ function exibirReceitas() {
   }
 
  let painelReceitas = document.querySelector('.painel-receitas');
- 
  painelReceitas.innerHTML = htmlReceitas;
-
 }
-
 exibirReceitas();
-
 
 // exibirReceitas();
 
@@ -97,16 +86,13 @@ function deletarReceita(id) {
 
   for (let index = 0; index < listaDeReceitas.length; index++) {
     const receita = listaDeReceitas[index];
-
     if (receita.id != id) {
       novaListaDeReceitas.push(receita);
     }
   }
-
   if (novaListaDeReceitas.length == listaDeReceitas.length) {
     return console.log("Não encontrei o id");
   }
-
   listaDeReceitas = novaListaDeReceitas;
   console.log("receita deletada com sucesso!");
 }
@@ -115,35 +101,26 @@ function deletarReceita(id) {
   const novaListaDeReceitas = listaDeReceitas.filter(
     (receita) => receita.id != id
   );
-
   if (novaListaDeReceitas.length == listaDeReceitas.length) {
     return console.log("Não encontrei o id");
   }
-
   listaDeReceitas = novaListaDeReceitas;
   console.log("receita deletada com sucesso!");
 }
-
-
-const condicaoDeReceita = (receita) => (receita.vegano = true);
-
-
-const atualizaReceita = (id, receitaAtualizada) => {
+  const condicaoDeReceita = (receita) => (receita.vegano = true);
+  const atualizaReceita = (id, receitaAtualizada) => {
   let foiAtualizado = false;
 
   listaDeReceitas.forEach((receita) => {
     if (receita.id != id) {
       return;
     }
-
     if (receitaAtualizada.titulo) {
       receita.titulo = receitaAtualizada.titulo;
     }
-
     if (receitaAtualizada.ingredientes) {
       receita.ingredientes = receitaAtualizada.ingredientes;
     }
-
     foiAtualizado = true;
   });
 
@@ -153,10 +130,7 @@ const atualizaReceita = (id, receitaAtualizada) => {
     "Não foi encontrado o id"
   );
 };
-
-
-const buscarReceita = (termoBuscado) => {
-
+  const buscarReceita = (termoBuscado) => {
   const resultados = listaDeReceitas.filter(
     (receita) =>
     receita.titulo.toLowerCase().indexOf(termoBuscado.toLowerCase()) != -1
@@ -171,6 +145,5 @@ const buscarReceita = (termoBuscado) => {
   if (!resultados.length) {
     console.log("Não foi encontrado receitas");
   }
-
   return console.log(resultados);
 };
